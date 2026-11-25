@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>408 知识点复习</title>
+    <title>重邮 802 数据结构 · 复习重点</title>
     <style>
         :root{--sidebar-width:260px;--primary:#c0392b;--primary-light:rgba(192,57,43,0.08);--bg:#f8f6f3;--text:#2c2c2c;--text-secondary:#777;--border:rgba(0,0,0,0.06)}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -71,16 +71,13 @@
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <button class="menu-toggle" id="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
 <div class="sidebar" id="sidebar">
-    <a href="index.html" class="sidebar-back">← 返回</a>
-    <div class="sidebar-section" id="subject-section">
+    <a href="index.html" class="sidebar-back">← 返回首页</a>
+    <div class="sidebar-section">
         <div class="sidebar-title">科目</div>
-        <div class="pill active" data-subject="data-structure" onclick="setSubject('data-structure')">📖 数据结构 <span style="font-size:11px;color:#999">45分</span></div>
-        <div class="pill" data-subject="computer-organization" onclick="setSubject('computer-organization')">🔧 计算机组成原理 <span style="font-size:11px;color:#999">45分</span></div>
-        <div class="pill" data-subject="operating-system" onclick="setSubject('operating-system')">⚙️ 操作系统 <span style="font-size:11px;color:#999">35分</span></div>
-        <div class="pill" data-subject="computer-network" onclick="setSubject('computer-network')">🌐 计算机网络 <span style="font-size:11px;color:#999">25分</span></div>
+        <div class="pill active">📖 数据结构 <span style="font-size:11px;color:#999">802 自命题</span></div>
     </div>
     <div class="sidebar-section">
-        <div class="sidebar-title">章节</div>
+        <div class="sidebar-title">章节 / 卡片</div>
         <div id="chapter-list"></div>
     </div>
 </div>
@@ -89,25 +86,11 @@
 </div>
 <script src="review_data.js"></script>
 <script>
-let currentSubject = 'data-structure';
+const currentSubject = 'data-structure';
 
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('sidebar-overlay').classList.toggle('show');
-}
-
-function setSubject(subject) {
-    currentSubject = subject;
-    document.querySelectorAll('#subject-section .pill').forEach(p => {
-        p.classList.toggle('active', p.dataset.subject === subject);
-    });
-    renderChapters();
-    renderSlides();
-    document.getElementById('content').scrollTop = 0;
-    if (window.innerWidth <= 768) {
-        document.getElementById('sidebar').classList.remove('open');
-        document.getElementById('sidebar-overlay').classList.remove('show');
-    }
 }
 
 function renderChapters() {
@@ -166,7 +149,8 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-setSubject('data-structure');
+renderChapters();
+renderSlides();
 </script>
 </body>
 </html>
