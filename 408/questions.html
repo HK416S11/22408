@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>408 真题题库</title>
+    <title>重邮 802 数据结构题库</title>
     <style>
         :root{--sidebar-width:260px;--primary:#c0392b;--primary-light:rgba(192,57,43,0.08);--bg:#f8f6f3;--text:#2c2c2c;--text-secondary:#777;--border:rgba(0,0,0,0.06)}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -69,15 +69,7 @@
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <button class="menu-toggle" id="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
 <div class="sidebar" id="sidebar">
-    <a href="index.html" class="sidebar-back">← 返回</a>
-    <div class="sidebar-section">
-        <div class="sidebar-title">科目</div>
-        <div class="pill active" data-subject="all" onclick="setSubject('all')">全部科目</div>
-        <div class="pill" data-subject="data-structure" onclick="setSubject('data-structure')">📖 数据结构</div>
-        <div class="pill" data-subject="computer-organization" onclick="setSubject('computer-organization')">🔧 计算机组成原理</div>
-        <div class="pill" data-subject="operating-system" onclick="setSubject('operating-system')">⚙️ 操作系统</div>
-        <div class="pill" data-subject="computer-network" onclick="setSubject('computer-network')">🌐 计算机网络</div>
-    </div>
+    <a href="index.html" class="sidebar-back">← 返回首页</a>
     <div class="sidebar-section">
         <div class="sidebar-title">题型</div>
         <div class="pill active" data-type="all" onclick="setType('all')">全部题型</div>
@@ -102,28 +94,13 @@
 <script src="questions_data.js"></script>
 <script>
 const PAGE_SIZE = 20;
-let filters = { subject: 'all', type: 'all', year: 'all' };
+let filters = { type: 'all', year: 'all' };
 let currentPage = 1;
 let filtered = [];
-
-const SUBJECT_MAP = {
-    'data-structure': '数据结构',
-    'computer-organization': '计算机组成原理',
-    'operating-system': '操作系统',
-    'computer-network': '计算机网络'
-};
 
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('sidebar-overlay').classList.toggle('show');
-}
-
-function setSubject(s) {
-    filters.subject = s;
-    currentPage = 1;
-    document.querySelectorAll('[data-subject]').forEach(p => p.classList.toggle('active', p.dataset.subject === s));
-    applyFilters();
-    if (window.innerWidth <= 768) toggleSidebar();
 }
 
 function setType(t) {
@@ -144,7 +121,6 @@ function setYear(y) {
 
 function applyFilters() {
     filtered = QUESTIONS_DATA.filter(q => {
-        if (filters.subject !== 'all' && q.subject !== filters.subject) return false;
         if (filters.type !== 'all' && q.type !== parseInt(filters.type)) return false;
         if (filters.year !== 'all' && q.year !== parseInt(filters.year)) return false;
         return true;
@@ -170,7 +146,6 @@ function renderQuestions() {
     container.innerHTML = page.map(q => {
         const typeName = {1:'选择题',2:'应用题',3:'算法题'}[q.type] || '选择题';
         const typeClass = 'type-' + q.type;
-        const subjName = SUBJECT_MAP[q.subject] || q.subject;
         const ansId = 'ans-' + q.id;
 
         let answerHtml = '';
@@ -185,7 +160,7 @@ function renderQuestions() {
             <div class="q-header">
                 <div class="q-meta">
                     <span class="q-badge ${typeClass}">${typeName}</span>
-                    <span class="q-badge subject">${subjName}</span>
+                    <span class="q-badge subject">数据结构</span>
                     <span class="q-score">${q.year}年 · 第${q.index}题 · ${q.score}分</span>
                 </div>
             </div>
