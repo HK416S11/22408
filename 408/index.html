@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>408 计算机学科专业基础综合</title>
+    <title>重庆邮电大学 802 数据结构</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{min-height:100vh;background:#f8f6f3;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#2c2c2c;display:flex;flex-direction:column;align-items:center;padding:40px 20px}
-        .back{position:fixed;top:20px;left:20px;color:#999;text-decoration:none;font-size:14px;transition:.2s}
-        .back:hover{color:#c0392b}
-        .header{text-align:center;margin-bottom:48px}
-        .header h1{font-size:36px;font-weight:800;margin-bottom:8px}
-        .header p{font-size:16px;color:#777}
+        .header{text-align:center;margin-bottom:48px;max-width:760px}
+        .header .kicker{font-size:12px;letter-spacing:3px;color:#c0392b;font-weight:800;text-transform:uppercase;margin-bottom:12px}
+        .header h1{font-size:36px;font-weight:800;margin-bottom:12px}
+        .header p{font-size:16px;color:#777;line-height:1.8}
+        .header .meta{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+        .header .meta span{font-size:12px;padding:5px 12px;border-radius:12px;background:rgba(192,57,43,0.06);color:#c0392b;font-weight:500}
         .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:900px;width:100%}
         .card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:16px;padding:32px;cursor:pointer;transition:.3s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit}
         .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08);border-color:rgba(192,57,43,0.2)}
@@ -23,29 +24,34 @@
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back">← 返回</a>
     <div class="header">
-        <h1>💻 408 计算机学科专业基础综合</h1>
-        <p>满分150分 · 数据结构45分 · 计组45分 · 操作系统35分 · 计网25分</p>
+        <div class="kicker">Chongqing University of Posts and Telecommunications · 802</div>
+        <h1>📚 802 数据结构 · 自命题复习站</h1>
+        <p>重庆邮电大学硕士研究生入学考试自命题科目《数据结构》，闭卷笔试，满分 150 分。<br>参考教材：严蔚敏、李冬梅、吴伟民《数据结构（C 语言版）（第 2 版）》，清华大学出版社。</p>
+        <div class="meta">
+            <span>教材 8 章</span>
+            <span>选择题 / 应用题 / 算法题</span>
+            <span>含答案解析</span>
+        </div>
     </div>
     <div class="cards">
         <a href="review.html" class="card">
-            <div class="card-icon">📚</div>
-            <h2>知识点复习</h2>
-            <p>4门课 114个知识卡片，覆盖全部考纲知识点。侧边栏导航，代码高亮，对比表格。</p>
+            <div class="card-icon">📖</div>
+            <h2>知识点复习重点</h2>
+            <p>依据教材 8 章整理的 30 张知识卡片，覆盖绪论、线性表、栈和队列、串数组广义表、树、图、查找、排序的核心概念、性质、典型算法与手算实例。</p>
             <div class="tags">
-                <span class="tag">数据结构</span>
-                <span class="tag">计算机组成原理</span>
-                <span class="tag">操作系统</span>
-                <span class="tag">计算机网络</span>
+                <span class="tag">考纲章节地图</span>
+                <span class="tag">复杂度</span>
+                <span class="tag">树与图</span>
+                <span class="tag">查找与排序</span>
             </div>
         </a>
         <a href="questions.html" class="card">
             <div class="card-icon">📝</div>
-            <h2>真题题库</h2>
-            <p>2009-2025年共799道真题，按年份、题型、科目筛选，含答案解析。</p>
+            <h2>数据结构题库</h2>
+            <p>218 道数据结构精选题（历年统考风格），按年份、题型筛选，覆盖选择、应用与算法设计，每题附参考答案与解析。</p>
             <div class="tags">
-                <span class="tag">17年真题</span>
+                <span class="tag">218 题</span>
                 <span class="tag">选择题</span>
                 <span class="tag">应用题</span>
                 <span class="tag">算法题</span>
